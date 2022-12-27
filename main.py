@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, request
 
 from comet import load_from_checkpoint
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 model = load_from_checkpoint('./checkpoints/model.ckpt')
 
 @app.route('/qe',methods = ['POST'])
-def login():
+def qe():
     if request.method == 'POST':
         src = request.form['src']
         mt = request.form['mt']
